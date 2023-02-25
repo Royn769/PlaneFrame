@@ -1,12 +1,6 @@
 function k_ele=PlaneFrameElementStiffness(A,E,I,L,angle)
-%PlaneFrameElementStiffness This function returns the element
-%element with modules of elasticity E,
-%cross-sectional area A, moment of
-%inertia I, length L, and angle
-%theta (in degrees).
-%The size of the element stiffness
-%matrix is 6 x 6.
 
+%The size of the element stiffness matrix is 6 x 6.
 
 c=cosd(angle);
 s=sind(angle);
@@ -26,16 +20,7 @@ T=[ c s 0 0 0 0;
     0 0 0 0 0 1;]
 k_ele=T\k_local*T;
 
-
-
 function k_t=assemPlaneFrame(k_t,k_ele,mode1,mode2)
-%assemPlaneFrame This function assembles the element stiffness
-%matrix k of the plane frame element with nodes
-%i and j into the global stiffness matrix K.
-%This function returnes the global stiffness
-%matrix K after the element stiffness matrix
-%k is assembled.
-
 
 d(1)=3*node1-2;
 d(2)=3*node1-1;
@@ -49,7 +34,7 @@ for ii=1:6
     end
 end
 
-%~~~main~~~
+%--------------main------------
 clc
 clear;
 node=[1 -60 0 0;
